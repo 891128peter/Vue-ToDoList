@@ -12,7 +12,7 @@ import { ref, defineEmits } from "vue";
 
 let text = ref("");
 
-const emit = defineEmits(["addTodo", "test"]);
+const emit = defineEmits(["addTodo"]);
 
 const onSubmit = () => {
   const todo = {
