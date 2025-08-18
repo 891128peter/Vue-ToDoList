@@ -46,13 +46,19 @@ const emit = defineEmits<{
 }>();
 
 const searchTodo = () => {
-  searchKeyword.value = prompt("請輸入關鍵字") || "";
-  if (searchKeyword.value.trim() === "") {
-    alert("搜尋不得為空，返回主頁");
+  const keywordInput = window.prompt("請輸入關鍵字");
+  // 使用者按下取消
+  if (keywordInput === null) return;
+  // 關鍵字為空
+  const keyword = keywordInput.trim();
+  if (!keyword) {
+    window.alert("搜尋不得為空，返回主頁");
     emit("updateFilter", "all");
-  } else {
-    emit("updateFilter", "search", searchKeyword.value);
+    return;
   }
+  // 進行搜尋
+  searchKeyword.value = keyword;
+  emit("updateFilter", "search", keyword);
 };
 </script>
 
