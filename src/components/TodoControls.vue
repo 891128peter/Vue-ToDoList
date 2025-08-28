@@ -19,16 +19,16 @@
 import type { Todo } from "@/types";
 import { defineEmits, defineProps, computed } from "vue";
 
-const props = defineProps(["todoArr"]);
+const { todoArr } = defineProps<{ todoArr: Todo[] }>();
 
 const emit = defineEmits(["checkAll", "deleteFinish"]);
 
 // 計算屬性：檢查是否所有任務都已完成
 const isAllChecked = computed(() => {
   // 沒有任務 → 一定是 false
-  if (props.todoArr.length === 0) return false;
+  if (todoArr.length === 0) return false;
   // 有任務且全部完成 → true
-  return props.todoArr.every((todo: Todo) => todo.complete);
+  return todoArr.every((todo) => todo.complete);
 });
 
 const checkAll = (checked: boolean) => {
