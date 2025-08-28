@@ -12,7 +12,7 @@
       "
     />
     <TodoControls
-      :todoArr="todoArr"
+      :todoArr="filteredTodos"
       @check-all="checkAll"
       @delete-finish="deleteFinish"
     />
@@ -63,16 +63,19 @@ const filteredTodos = computed(() => {
   }
 });
 
-// 全選功能
+// 全選功能（僅作用於目前篩選後的清單）
 const checkAll = (checked: boolean) => {
-  todoArr.value.forEach((todo) => {
+  filteredTodos.value.forEach((todo) => {
     todo.complete = checked;
   });
 };
 
-// 刪除已完成任務
+// 刪除已完成任務（僅刪除目前篩選畫面中的項目）
 const deleteFinish = () => {
-  todoArr.value = todoArr.value.filter((todo) => !todo.complete);
+  const visibleIds = new Set(filteredTodos.value.map((t) => t.id));
+  todoArr.value = todoArr.value.filter(
+    (todo) => !(visibleIds.has(todo.id) && todo.complete)
+  );
 };
 
 // 任務完成勾選功能
