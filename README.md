@@ -26,8 +26,8 @@
 ## 🚀 安裝與使用
 ```bash
 # 複製專案
-git clone https://github.com/891128peter/todolist.git
-cd todolist
+git clone https://github.com/891128peter/Vue-ToDoList.git
+cd Vue-ToDoList
 
 # 安裝套件
 npm install
