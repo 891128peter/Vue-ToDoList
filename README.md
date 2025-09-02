@@ -2,7 +2,7 @@
 
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![vue](https://img.shields.io/badge/vue-3.0-brightgreen)
-![ts](https://img.shields.io/badge/typescript-4.x-blue)
+![ts](https://img.shields.io/badge/typescript-5.8.3-blue)
 
 ---
 
